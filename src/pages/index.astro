@@ -1,9 +1,25 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import programmer from '../../public/programming.svg';
 ---
 
 <Layout title="Welcome to Astro.">
+<section>
+    <div class="text-white mt-[20vh] h-[40vh] flex flex-row items-center justify-center">
+    <div class=" flex flex-col items-start shrink-0">
+    <p class="text-7xl">Lucas Cirille</p>
+    <p class="text-3xl">Desarrollador Web/App</p>
+    <p class="text-1xl">Creo experiencias digitales creativas, atractivas y accesibles</p>
+    </div>
+    <Image src={programmer} alt="programmer"></Image>
+    </div>
+
+    <hr class="mt-[30vh] mx-[20vw]">
+</section>
+
 </Layout>
 
 <style>
+    
 </style>
