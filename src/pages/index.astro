@@ -2,30 +2,87 @@
 import Layout from '../layouts/Layout.astro';
 import { Image } from 'astro:assets';
 import programmer from '../../public/programming.svg';
-import Nav from '../components/Nav.astro';
+
 ---
 
 <Layout title="Welcome to Astro.">
-<section>
 
-    <Nav/>
+<main id="main" class="snap-y snap-mandatory h-screen overflow-auto ">
+    <section id="home" class="snap-center">
+        
 
-    <div class="text-white mt-[20vh] h-[40vh] flex flex-row items-center justify-center">
-    <div class=" flex flex-col items-start shrink-0">
-    <p class="text-7xl">Lucas Cirille</p>
-    <p class="text-3xl">Desarrollador Web/App</p>
-    <p class="text-1xl">Creo experiencias digitales creativas, atractivas y accesibles</p>
-    </div>
-    <Image src={programmer} alt="programmer" loading={'eager'} width={500}/>
-    </div>
+        <div class="text-white pt-[40vh] h-[40vh] flex flex-row items-center justify-center">
+        <div class=" flex flex-col items-start shrink-0">
+        <p class="text-7xl">Lucas Cirille</p>
+        <p class="text-3xl">Desarrollador Web/App</p>
+        <p class="text-1xl">Creo experiencias digitales creativas, atractivas y accesibles</p>
+        </div>
+        <Image src={programmer} alt="programmer" loading={'eager'} width={500}/>
+        </div>
 
-    <hr class="mt-[30vh] mx-[20vw]">
-</section>
-<section>
-    
-</section>
+        <hr class="mt-[50vh] mx-[20vw]">
+    </section>
+
+    <section id="about" class="h-screen snap-center">
+        <h2>sdfasfdd</h2>
+    </section>
+
+    <section id="contact-me" class="h-screen snap-center">
+    </section>
+</main>
+
 </Layout>
 
-<style>
-    
-</style>
+<script>
+    const headerEl = document.querySelector("#landing-header") as HTMLElement
+
+const observerOptions = {
+  root: null,
+  rootMargin: "0px", // en cuanto se vea el elemento
+  threshold: 0.9, // porcentaje de visibilidad
+}
+
+const nav = document.querySelectorAll("#navegation li a")
+// [ home, about, contact-me ]
+console.log(nav)
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    const { isIntersecting } = entry
+    var url = entry.target.id;
+    if (isIntersecting) {
+        
+        var currentURL = window.location.href;
+        var burl = currentURL.split("#");
+        var newURL = burl[0].concat("",`#${url}`);
+
+        window.location.replace(newURL);
+        
+          if(url == "home"){
+            nav[0].setAttribute("id", "targ")
+          }
+          if(url == "about"){
+            nav[1].setAttribute("id", "targ")
+          }
+          if(url == "contact-me"){
+            nav[2].setAttribute("id", "targ")
+          }
+        
+    } else{
+      if(url == "home"){
+            nav[0].setAttribute("id", "")
+          }
+          if(url == "about"){
+            nav[1].setAttribute("id", "")
+          }
+          if(url == "contact-me"){
+            nav[2].setAttribute("id", "")
+          }
+    }
+  })
+}, observerOptions)
+
+const sectionElements = document.querySelectorAll("#main section")
+sectionElements.forEach((section) => observer.observe(section))
+</script>
+
