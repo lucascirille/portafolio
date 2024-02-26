@@ -1,0 +1,102 @@
+<div class="card-wrap">
+    <article class="card">
+        <header class="header-card">
+        <img src="/img/foto-1.jpg" alt="">
+        </header>
+        <footer>
+        <div class="categoria-card">
+            <span>Categoria</span>
+        </div>
+        <div class="texto-card">
+            <h3>Lorem ipsum dolor sit.</h3>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. In minima fugit eos excepturi aspernatur quibusdam soluta maxime magnam quis. Cum perferendis fuga a eius sunt?</p>
+        </div>
+        <div class="perfil-card">
+            <div class="img-perfil-card">
+            <img src="/img/perfil-1.jpg" alt="">
+            </div>
+            <div class="text-perfil-card">
+            <span>Nombre</span>
+            <span>Fecha</span>
+            </div>
+        </div>
+        </footer>
+    </article>
+    <article class="card">
+        <header class="header-card">
+        <img src="img/foto-2.jpg" alt="">
+        </header>
+        <footer>
+        <div class="categoria-card">
+            <span>Categoria</span>
+        </div>
+        <div class="texto-card">
+            <h3>Lorem ipsum dolor sit.</h3>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. In minima fugit eos excepturi aspernatur quibusdam soluta maxime magnam quis. Cum perferendis fuga a eius sunt?</p>
+        </div>
+        <div class="perfil-card">
+            <div class="img-perfil-card">
+            <img src="/img/perfil-2.jpg" alt="">
+            </div>
+            <div class="text-perfil-card">
+            <span>Nombre</span>
+            <span>Fecha</span>
+            </div>
+        </div>
+        </footer>
+    </article>
+</div>
+
+<style>
+    body{
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+img{
+  max-width: 100%;
+}
+article.card{
+  max-width: 350px;
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  margin: 1rem;
+  box-shadow: 0px 0px 12px #d7d7d7;
+}
+.header-card img{
+  border-radius: 8px 8px 0 0;
+  max-height: 200px;
+  height: 200px;
+  width: 100%;
+}
+.categoria-card{
+  margin-top: 1rem;
+}
+.categoria-card span{
+  background: #25c4d8;
+  border-radius: 4px;
+  padding: 0.2rem 0.5rem;
+  color: #fff;
+}
+.card footer{
+  padding: 0 1rem;
+}
+.perfil-card{
+  display: flex;
+  align-items: center;
+}
+.img-perfil-card{
+  display: flex;
+}
+.img-perfil-card img{
+  width: 50px;
+  border-radius: 50%;
+  margin: 1rem 1rem 1rem 0;
+}
+.text-perfil-card{
+  display: flex;
+  flex-flow: column;
+}
+.text-perfil-card span:nth-child(2){
+  color: #cfcfcf;
+}
+</style>

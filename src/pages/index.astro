@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import { Image } from 'astro:assets';
 import programmer from '../../public/programming.svg';
-
+import Cards from '../components/Cards.astro';
 ---
 
 <Layout title="Welcome to Astro.">
@@ -24,7 +24,7 @@ import programmer from '../../public/programming.svg';
     </section>
 
     <section id="about" class="h-screen snap-center">
-        <h2>sdfasfdd</h2>
+      <Cards/>
     </section>
 
     <section id="contact-me" class="h-screen snap-center">
@@ -39,7 +39,7 @@ import programmer from '../../public/programming.svg';
 const observerOptions = {
   root: null,
   rootMargin: "0px", // en cuanto se vea el elemento
-  threshold: 0.9, // porcentaje de visibilidad
+  threshold: 1, // porcentaje de visibilidad
 }
 
 const nav = document.querySelectorAll("#navegation li a")
