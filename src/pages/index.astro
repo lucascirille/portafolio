@@ -34,7 +34,7 @@ import programmer from "../../public/programming.svg";
     <section id="about" class="h-[200svh] snap-start">
       <div id="container-line" class="relative h-[0.01em] invisible">
         <svg
-          id="timeLine"
+          id="Line"
           class="absolute visible top-[10svh] left-1/2"
           width="8"
           height="0"
@@ -81,6 +81,11 @@ import programmer from "../../public/programming.svg";
           id == "contact-me"
             ? nav[3].setAttribute("id", "targ")
             : nav[3].setAttribute("id", "");
+
+          if (id == "container-line") {
+            entry.target.querySelector("#Line")?.setAttribute("id", "timeLine");
+          }
+        } else {
         }
       });
     }, observerOptions);
@@ -106,7 +111,7 @@ import programmer from "../../public/programming.svg";
       }
     }
 
-    #timeLine:scope {
+    #timeLine {
       animation: expand-line 3s ease normal; /* timing-function delay iteration-count direction fill-mode; */
       animation-fill-mode: forwards;
     }
