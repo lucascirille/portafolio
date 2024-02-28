@@ -1,88 +1,114 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import { Image } from 'astro:assets';
-import programmer from '../../public/programming.svg';
-import Cards from '../components/Cards.astro';
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import programmer from "../../public/programming.svg";
 ---
 
 <Layout title="Welcome to Astro.">
-
-<main id="main" class="snap-y snap-mandatory h-screen overflow-auto ">
-    <section id="home" class="snap-center">
-        
-
-        <div class="text-white pt-[40vh] h-[40vh] flex flex-row items-center justify-center">
-        <div class=" flex flex-col items-start shrink-0">
-        <p class="text-7xl">Lucas Cirille</p>
-        <p class="text-3xl">Desarrollador Web/App</p>
-        <p class="text-1xl">Creo experiencias digitales creativas, atractivas y accesibles</p>
+  <main
+    id="main"
+    class="h-screen w-full snap-y snap-mandatory overflow-y-scroll"
+  >
+    <section id="home" class="h-[100svh] snap-center">
+      <div
+        class="text-white pt-[40vh] h-[40vh] flex flex-row items-center justify-center"
+      >
+        <div class="flex flex-col items-start shrink-0">
+          <p class="text-7xl">Lucas Cirille</p>
+          <p class="text-3xl">Desarrollador Web/App</p>
+          <p class="text-1xl">
+            Creo experiencias digitales creativas, atractivas y accesibles
+          </p>
         </div>
-        <Image src={programmer} alt="programmer" loading={'eager'} width={500}/>
-        </div>
+        <Image
+          src={programmer}
+          alt="programmer"
+          loading={"eager"}
+          width={500}
+        />
+      </div>
 
-        <hr class="mt-[50vh] mx-[20vw]">
+      <hr class="mt-[50vh] mx-[20vw]" />
     </section>
 
-    <section id="about" class="h-screen snap-center">
-      <Cards/>
+    <section id="about" class="h-[200svh] snap-start">
+      <div id="container-line" class="relative h-[0.01em] invisible">
+        <svg
+          id="timeLine"
+          class="absolute visible top-[10svh] left-1/2"
+          width="8"
+          height="0"
+          viewBox="0 0 8 900"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M4 0V450V900" stroke="white" stroke-width="8"></path>
+        </svg>
+      </div>
     </section>
 
-    <section id="contact-me" class="h-screen snap-center">
-    </section>
-</main>
+    <section id="projects" class="h-[100svh] snap-center"></section>
 
-</Layout>
+    <section id="contact-me" class="h-[100svh] snap-center"></section>
+  </main>
 
-<script>
-    const headerEl = document.querySelector("#landing-header") as HTMLElement
+  <script>
+    const observerOptions = {
+      root: null,
+      rootMargin: "0px ", // en cuanto se vea el elemento
+      threshold: 0.8, // porcentaje de visibilidad
+    };
 
-const observerOptions = {
-  root: null,
-  rootMargin: "0px", // en cuanto se vea el elemento
-  threshold: 1, // porcentaje de visibilidad
-}
+    const nav = document.querySelectorAll("#navegation li a");
+    // [ home, about, proyects, contact-me ]
+    // console.log(nav);
 
-const nav = document.querySelectorAll("#navegation li a")
-// [ home, about, contact-me ]
-console.log(nav)
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const { isIntersecting } = entry;
+        var id = entry.target.id;
+        console.log(entries);
+        if (isIntersecting) {
+          id == "home"
+            ? nav[0].setAttribute("id", "targ")
+            : nav[0].setAttribute("id", "");
+          id == "container-line"
+            ? nav[1].setAttribute("id", "targ")
+            : nav[1].setAttribute("id", "");
+          id == "projects"
+            ? nav[2].setAttribute("id", "targ")
+            : nav[2].setAttribute("id", "");
+          id == "contact-me"
+            ? nav[3].setAttribute("id", "targ")
+            : nav[3].setAttribute("id", "");
+        }
+      });
+    }, observerOptions);
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    const { isIntersecting } = entry
-    var url = entry.target.id;
-    if (isIntersecting) {
-        
-        var currentURL = window.location.href;
-        var burl = currentURL.split("#");
-        var newURL = burl[0].concat("",`#${url}`);
+    const sectionElements = document.querySelectorAll("#main section");
+    sectionElements.forEach((section) => {
+      section.id == "about"
+        ? observer.observe(
+            section.querySelector("#container-line") as HTMLElement,
+          )
+        : observer.observe(section);
+    });
+  </script>
 
-        window.location.replace(newURL);
-        
-          if(url == "home"){
-            nav[0].setAttribute("id", "targ")
-          }
-          if(url == "about"){
-            nav[1].setAttribute("id", "targ")
-          }
-          if(url == "contact-me"){
-            nav[2].setAttribute("id", "targ")
-          }
-        
-    } else{
-      if(url == "home"){
-            nav[0].setAttribute("id", "")
-          }
-          if(url == "about"){
-            nav[1].setAttribute("id", "")
-          }
-          if(url == "contact-me"){
-            nav[2].setAttribute("id", "")
-          }
+  <style>
+    /* The animation code */
+    @keyframes expand-line {
+      from {
+        height: 2vh;
+      }
+      to {
+        height: 80vh;
+      }
     }
-  })
-}, observerOptions)
 
-const sectionElements = document.querySelectorAll("#main section")
-sectionElements.forEach((section) => observer.observe(section))
-</script>
-
+    #timeLine {
+      animation: expand-line 3s ease normal; /* timing-function delay iteration-count direction fill-mode; */
+      animation-fill-mode: forwards;
+    }
+  </style>
+</Layout>

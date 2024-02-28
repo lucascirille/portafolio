@@ -1,3 +1,19 @@
 {
-    "liveServer.settings.multiRootWorkspaceName": "porfolio"
+    "liveServer.settings.multiRootWorkspaceName": "porfolio",
+    "editor.minimap.enabled": false,
+    "editor.scrollbar.vertical": "hidden",
+    "editor.overviewRulerBorder": false,
+    "editor.hideCursorInOverviewRuler": true,
+    "editor.formatOnSave": true,
+    "editor.guides.indentation": false,
+    "indenticator.width": 1,
+    "indenticator.color.dark": "rgba(255,255,255,0.1)",
+    "breadcrumbs.enabled": false,
+    "editor.glyphMargin": false,
+    "workbench.statusBar.visible": false,
+    "workbench.editor.showTabs": "single",
+    "editor.wordWrap": "on",
+    "[python]": {
+        "editor.formatOnType": true
+    }
 }
