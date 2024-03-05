@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
 import programmer from "../../public/programming.svg";
+import Welcome from "../components/Welcome.astro";
 ---
 
 <Layout title="Welcome to Astro.">
@@ -15,17 +16,19 @@ import programmer from "../../public/programming.svg";
       >
         <div class="flex flex-col items-start shrink-0">
           <p class="text-7xl">Lucas Cirille</p>
-          <p class="text-3xl">Desarrollador Web/App</p>
+          <p class="text-3xl">Desarrollador Web/App Full-Stack</p>
           <p class="text-1xl">
             Creo experiencias digitales creativas, atractivas y accesibles
           </p>
         </div>
-        <Image
-          src={programmer}
-          alt="programmer"
-          loading={"eager"}
-          width={500}
-        />
+        <div class="w-[50svh] flex justify-center items-center">
+          <Image
+            src={programmer}
+            alt="programmer"
+            loading={"eager"}
+            width={500}
+          />
+        </div>
       </div>
 
       <hr class="mt-[50vh] mx-[20vw]" />

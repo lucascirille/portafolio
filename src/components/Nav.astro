@@ -1,13 +1,14 @@
 ---
+import Welcome from "./Welcome.astro";
 var variable = "pepe";
 ---
 
 <header class="fixed bg-transparent top-0 h-[8vh] w-screen z-10">
   <div class="flex items-center box-content h-full justify-between">
-    <div class="flex grow basis-0"><p class="text-white">Logo</p></div>
+    <div class="flex grow basis-0"><Welcome /></div>
     <nav id="navegation" class="flex">
       <ul
-        class="scroll-smooth flex [&>li]:px-[1em] [&>li]:py-[0.5em] text-white"
+        class="scroll-smooth flex [&>li]:px-[1em] [&>li]:py-[0.5em] text-white text-lg"
       >
         <li><a href="#home">Inicio</a></li>
         <li><a href="#about">Sobre Mi</a></li>
@@ -19,9 +20,11 @@ var variable = "pepe";
       <ul class="flex [&>li]:px-[1em]">
         <li>
           <div
-            class="mr-[1em] border-2 border-myYellow rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-myYellow hover:text-white"
+            class="text-lg mr-[1em] border-2 border-myYellow rounded-lg px-3 py-2 text-white cursor-pointer hover:bg-myYellow hover:text-white"
           >
-            Descarga mi CV
+            <a href="CV-LucasCirille.pdf" download="CV-LucasCirille">
+              Descarga mi CV</a
+            >
           </div>
         </li>
       </ul>
