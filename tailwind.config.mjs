@@ -4,6 +4,8 @@ export default {
 	theme: {
 		extend: {
 			colors: {
+
+
 				"myBlack": "var(--black)",
 				"myBlue": "var(--blue)",
 				"myYellow": "var(--yellow)",
