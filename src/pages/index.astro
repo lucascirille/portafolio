@@ -5,14 +5,9 @@ import programmer from "../../public/programming.svg";
 import Welcome from "../components/Welcome.astro";
 ---
 
-
-
 <Layout title="Welcome to Astro.">
-  <main
-    id="main"
-    class="h-screen w-full snap-y snap-mandatory overflow-y-scroll"
-  >
-    <section id="home" class="h-[100svh] snap-center">
+  <main id="main" class="h-screen w-full">
+    <section id="home" class="h-[100svh]">
       <div
         class="text-white pt-[40vh] h-[40vh] flex flex-row items-center justify-center"
       >
@@ -36,25 +31,27 @@ import Welcome from "../components/Welcome.astro";
       <hr class="mt-[50vh] mx-[20vw]" />
     </section>
 
-    <section id="about" class="h-[200svh] snap-start">
+    <section id="about" class="h-[200svh]">
       <div id="container-line" class="relative h-[0.01em] invisible">
         <svg
-          id="Line"
-          class="absolute visible top-[10svh] left-1/2"
-          width="8"
-          height="0"
-          viewBox="0 0 8 900"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
+          id="line-svg"
+          class="absolute visible"
+          width="100%"
+          height="200svh"
         >
-          <path d="M4 0V450V900" stroke="white" stroke-width="8"></path>
+          <line
+            x1="49%"
+            y1="7%"
+            x2="49%"
+            y2="100%"
+            style="stroke:#FFFF;stroke-width:6;stroke-linecap: round;"></line>
         </svg>
       </div>
     </section>
 
-    <section id="projects" class="h-[100svh] snap-center"></section>
+    <section id="projects" class="h-[100svh]"></section>
 
-    <section id="contact-me" class="h-[100svh] snap-center"></section>
+    <section id="contact-me" class="h-[100svh]"></section>
   </main>
 
   <script>
