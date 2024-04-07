@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
 import programmer from "../../public/programming.svg";
-import Welcome from "../components/Welcome.astro";
+import { Button } from "@/components/ui/button";
 ---
 
 <Layout title="Welcome to Astro.">
@@ -49,7 +49,9 @@ import Welcome from "../components/Welcome.astro";
       </div>
     </section>
 
-    <section id="projects" class="h-[100svh]"></section>
+    <section id="projects" class="h-[100svh]">
+      <Button variant={"outline"}>Holaaaaaaaaaaaaaaaaa</Button>
+    </section>
 
     <section id="contact-me" class="h-[100svh]"></section>
   </main>

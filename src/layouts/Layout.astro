@@ -1,13 +1,13 @@
 ---
-import Nav from '../components/Nav.astro';
-import { ViewTransitions } from 'astro:transitions';
+import Nav from "../components/Nav.astro";
+import { ViewTransitions } from "astro:transitions";
+import "@/styles/globals.css";
 
 interface Props {
 	title: string;
 }
 
 const { title } = Astro.props;
-
 ---
 
 <!doctype html>
@@ -19,36 +19,33 @@ const { title } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
-		<ViewTransitions/>
+		<ViewTransitions />
 	</head>
 	<body>
-		<Nav/>
+		<Nav />
 		<slot />
-	</body>
+	</body><style is:global>
+		:root {
+			--black: #1e1d1d;
+			--blue: #1a3a80;
+			--yellow: #fca311;
+			--white-gray: #e5e5e5;
+		}
+		html {
+			font-family: system-ui, sans-serif;
+			background-color: var(--black);
+			scroll-behavior: smooth;
+		}
+		code {
+			font-family:
+				Menlo,
+				Monaco,
+				Lucida Console,
+				Liberation Mono,
+				DejaVu Sans Mono,
+				Bitstream Vera Sans Mono,
+				Courier New,
+				monospace;
+		}
+	</style>
 </html>
-<style is:global>
-	:root {
-		--black: #1E1D1D;
-		--blue: #1A3A80;
-		--yellow: #FCA311;
-		--white-gray: #E5E5E5;
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background-color: var(--black);
-		scroll-behavior: smooth
-		
-	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
-
-</style>
