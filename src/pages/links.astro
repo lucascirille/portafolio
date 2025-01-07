@@ -3,6 +3,30 @@ import Layout from "@/layouts/Layout.astro";
 import SectionContainer from "@/components/SectionContainer.astro";
 import TitleSection from "@/components/TitleSection.astro";
 import Link from "@/components/icons/Link.astro";
+import SocialPill from "@/components/SocialPill.astro";
+import LinkedIn from "@/components/icons/LinkedIn.astro";
+import Instagram from "@/components/icons/Instagram.astro";
+import GitHub from "@/components/icons/GitHub.astro";
+
+const socialMedia = [
+  {
+    href: "https://www.instagram.com/lucas.cirille/",
+    name: "Instagram",
+    icon: Instagram,
+  },
+  {
+    href: "https://www.linkedin.com/in/lucas-cirille/",
+    name: "LinkedIn",
+    icon: LinkedIn,
+  },
+];
+const coding = [
+  {
+    href: "https://github.com/lucascirille",
+    name: "Github",
+    icon: GitHub,
+  },
+];
 ---
 
 <Layout
@@ -13,9 +37,40 @@ import Link from "@/components/icons/Link.astro";
     <SectionContainer class="py-16 md:py-36">
       <TitleSection>
         <Link />
-        Links que podrian ser de su agrado 😁
+        Links!
       </TitleSection>
     </SectionContainer>
-    <div class="space-y-24"></div>
+    <div class="space-y-24">
+      <SectionContainer>
+        <TitleSection>Redes Sociales</TitleSection>
+        <ul class="flex gap-10 flex-wrap w-max">
+          {
+            socialMedia.map(({ href, name, icon: Icon }) => (
+              <li>
+                <SocialPill href={href}>
+                  <Icon />
+                  {name}
+                </SocialPill>
+              </li>
+            ))
+          }
+        </ul>
+      </SectionContainer>
+      <SectionContainer>
+        <TitleSection>Codigo</TitleSection>
+        <ul class="flex gap-10 flex-wrap w-max">
+          {
+            coding.map(({ href, name, icon: Icon }) => (
+              <li>
+                <SocialPill href={href}>
+                  <Icon />
+                  {name}
+                </SocialPill>
+              </li>
+            ))
+          }
+        </ul>
+      </SectionContainer>
+    </div>
   </main>
 </Layout>
