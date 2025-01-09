@@ -5,8 +5,9 @@ import TitleSection from "@/components/TitleSection.astro";
 import Link from "@/components/icons/Link.astro";
 import SocialPill from "@/components/SocialPill.astro";
 import LinkedIn from "@/components/icons/LinkedIn.astro";
-import Instagram from "@/components/icons/Instagram.astro";
 import GitHub from "@/components/icons/GitHub.astro";
+import Workana from "@/components/icons/Workana.astro";
+import Upwork from "@/components/icons/Upwork.astro";
 
 const socialMedia = [
   {
@@ -20,6 +21,18 @@ const coding = [
     href: "https://github.com/lucascirille",
     name: "Github",
     icon: GitHub,
+  },
+];
+const freelancer = [
+  {
+    href: "https://www.workana.com/freelancer/0e7ec107e09564a4f1d3aa28e90c7991",
+    name: "Workana",
+    icon: Workana,
+  },
+  {
+    href: "https://www.upwork.com/freelancers/~01c55b9a2b8e712614?mp_source=share",
+    name: "Upwork",
+    icon: Upwork,
   },
 ];
 ---
@@ -56,6 +69,21 @@ const coding = [
         <ul class="flex gap-10 flex-wrap w-max">
           {
             coding.map(({ href, name, icon: Icon }) => (
+              <li>
+                <SocialPill href={href}>
+                  <Icon />
+                  {name}
+                </SocialPill>
+              </li>
+            ))
+          }
+        </ul>
+      </SectionContainer>
+      <SectionContainer>
+        <TitleSection>Portales de trabajo</TitleSection>
+        <ul class="flex gap-10 flex-wrap w-max">
+          {
+            freelancer.map(({ href, name, icon: Icon }) => (
               <li>
                 <SocialPill href={href}>
                   <Icon />

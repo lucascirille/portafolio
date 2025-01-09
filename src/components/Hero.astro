@@ -4,6 +4,7 @@ import Badge from "@/components/Badge.astro";
 import LinkedInIcon from "@/components/icons/LinkedIn.astro";
 import MailIcon from "@/components/icons/Mail.astro";
 import SocialPill from "@/components/SocialPill.astro";
+import File from "@/components/icons/File.astro";
 ---
 
 <div class="max-w-xl">
@@ -31,8 +32,10 @@ import SocialPill from "@/components/SocialPill.astro";
     class="mt-6 text-xl text-gray-800 dark:[&>strong]:text-yellow-200 [&>strong]:text-yellow-500 [&>strong]:font-semibold dark:text-gray-300"
   >
     +4 años de experiencia. <strong
-      >Estudiante de Ing. de Sistemas de Inf. y Freelancer de Apps
-      Multiplataforma</strong
+      >Estudiante de Ing. de Sistemas de Inf. y <a
+        href="/links"
+        class="hover:underline"><i>Freelancer</i></a
+      > de Apps Multiplataforma</strong
     > de Bs.As. , Argentina 🇦🇷 . Especializado en el desarrollo de aplicaciones web
     únicas.
   </p>
@@ -45,5 +48,11 @@ import SocialPill from "@/components/SocialPill.astro";
       <LinkedInIcon class="size-4" />
       LinkedIn
     </SocialPill>
+    <div class="ml-auto">
+      <SocialPill href="../../public/CV-LucasCirille.pdf">
+        <File />
+        Curriculum Vitae
+      </SocialPill>
+    </div>
   </nav>
 </div>
