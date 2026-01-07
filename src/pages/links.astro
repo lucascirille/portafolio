@@ -1,6 +1,7 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import SectionContainer from "@/components/SectionContainer.astro";
+import SubtitleSection from "@/components/SubtitleSection.astro";
 import TitleSection from "@/components/TitleSection.astro";
 import Link from "@/components/icons/Link.astro";
 import SocialPill from "@/components/SocialPill.astro";
@@ -50,7 +51,7 @@ const freelancer = [
     </SectionContainer>
     <div class="space-y-24">
       <SectionContainer>
-        <TitleSection>Redes Sociales</TitleSection>
+        <SubtitleSection>Redes Sociales</SubtitleSection>
         <ul class="flex gap-10 flex-wrap w-max">
           {
             socialMedia.map(({ href, name, icon: Icon }) => (
@@ -65,7 +66,7 @@ const freelancer = [
         </ul>
       </SectionContainer>
       <SectionContainer>
-        <TitleSection>Codigo</TitleSection>
+        <SubtitleSection>Codigo</SubtitleSection>
         <ul class="flex gap-10 flex-wrap w-max">
           {
             coding.map(({ href, name, icon: Icon }) => (
@@ -80,7 +81,7 @@ const freelancer = [
         </ul>
       </SectionContainer>
       <SectionContainer>
-        <TitleSection>Portales de trabajo</TitleSection>
+        <SubtitleSection>Portales de trabajo</SubtitleSection>
         <ul class="flex gap-10 flex-wrap w-max">
           {
             freelancer.map(({ href, name, icon: Icon }) => (
